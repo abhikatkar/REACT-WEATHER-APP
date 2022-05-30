@@ -1,14 +1,17 @@
+import { useState } from "react";
 import "../Components/Navbar.css";
 
 
-export const Navbar = () => {
+export const Navbar = ({getItemParent}) => {
+
+    const [item , setItem] = useState("");
 
 
     return(
         <div className="nav">
             <div>
-            <input className="search" type="text" />
-            <button className="btn">Search</button>
+            <input onChange={(e)=>(setItem(e.target.value))} className="search" type="text" />
+            <button onClick={()=>{getItemParent(item)}}  className="btn">Search</button>
             </div>
             
         </div>

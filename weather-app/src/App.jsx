@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import { Navbar } from './Components/Navbar';
+import { Main } from './Components/Main';
+import { useState } from 'react';
 
 function App() {
+
+  const [item2, setItem2] = useState("");
+
+  function getItemParent(x){
+      setItem2(x);
+  }
+
+
   return (
     <div className="App">    
-      <Navbar/>
-
-
-      
-      {/* <div>
-      <iframe
-  width="600"
-  height="450"
-  // style="border:0"
-  // loading="lazy"
-  
-  // referrerpolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAWelLTPW340QBxVkEDipz0q9cODb0T8GI&q=satara">
-</iframe>
-      </div> */}
+      <Navbar getItemParent = {getItemParent}/>
+      <Main value = {item2}/>
     </div>
   );
 }
