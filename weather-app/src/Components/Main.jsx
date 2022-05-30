@@ -2,20 +2,33 @@ import "../Components/Main.css"
 import { BsFillSunFill } from 'react-icons/bs';
 import { MdNightsStay } from 'react-icons/md';
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Main = ({value})=>{
 
-    const [data, setData] = useState([]);
+    const [data1, setData1] = useState([]);
 
     const z = `https://www.google.com/maps/embed/v1/place?key=AIzaSyAWelLTPW340QBxVkEDipz0q9cODb0T8GI&q=${value}`;
 
-    function getData() {
+useEffect(()=>{
+    axios.get("https://api.openweathermap.org/data/2.5/weather?q=satara&appid=06e57ae98533ae7240b4a10cfa49e0ee&units=metric")
+    .then((res) => {setData1(res.data)
+        console.log(res.data);
+    });
+    
+},[]);
 
-        axios.get("https://api.openweathermap.org/data/2.5/weather?q=satara&appid=06e57ae98533ae7240b4a10cfa49e0ee&units=metric")
-        .then((res) => setData([...res.data]));
-    }
+useEffect(()=>{
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=06e57ae98533ae7240b4a10cfa49e0ee&units=metric`)
+    .then((res) => {setData1(res.data)
+        console.log(res.data);
+    });
+    
+},[value]);
 
+   
+ 
+    
     
 
 
@@ -23,7 +36,7 @@ export const Main = ({value})=>{
         <div className="main">
            <div className="first-container">
                <div className="box-1">
-                   <h3>Satara</h3>
+                   <h3>{data1.name}</h3>
                    <h1>23<sup>o</sup>C</h1>
                    <h3>clouds</h3>
                </div>
