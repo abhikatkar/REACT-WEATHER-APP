@@ -35,6 +35,18 @@
     border-bottom-right-radius: .7rem;
 }
 
+.btn1{
+  width: 11rem;
+  margin-left: 20px;
+  height: 2.2rem;
+  font-size: 1rem;
+  background-color: #646FD4;
+  border: none;
+  color: white;
+  border-top-left-radius: .7rem;
+  border-bottom-right-radius: .7rem;
+}
+
 
 
 
@@ -77,7 +89,7 @@
 @media screen and (min-width:1666px){
     .nav{
         background-color: #DBDFFD;
-        width: 1995px;
+        width: 3000px;
       height: 85px;
     }
 }
