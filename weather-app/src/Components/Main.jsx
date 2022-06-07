@@ -8,7 +8,7 @@ export const Main = ({value})=>{
 
 
       const [data2 , setData2] = useState({       
-        daily:[{temp:{day:"",night:""}},{temp:{day:"",night:""}},{temp:{day:"",night:""}},{temp:{day:"",night:""}},{temp:{day:"",night:""}}],        
+        daily:[{dt:"",temp:{day:"",night:""}},{dt:"",temp:{day:"",night:""}},{dt:"",temp:{day:"",night:""}},{dt:"",temp:{day:"",night:""}},{dt:"",temp:{day:"",night:""}}],        
       });
 
     const [data1, setData1] = useState({
@@ -30,8 +30,33 @@ export const Main = ({value})=>{
         });
         
     },[value]);
+// let a = "1654583400"
+// console.log(a.toDateString())
 
 
+function convert(d){
+    var myDate = new Date(d*1000);
+
+     return(day(myDate.toDateString()));
+
+}
+
+function day(z){
+  return (z.split(" ")[0])
+}
+
+
+
+function convert2(d){
+    var myDate = new Date(d*1000);
+
+     return(day2(myDate.toDateString()));
+
+}
+
+function day2(z){
+    return (z.split(" ")[2]+" "+z.split(" ")[1]+" "+ z.split(" ")[3])
+  }
 
 
 useEffect(()=>{
@@ -85,31 +110,38 @@ async function cityWeekInfo(latitude, longitude) {
            </div>
            <div className="second-container">
                <div className="small-box">
-                   
+               <p>{data2.daily[0].dt!=""&&convert(data2.daily[0].dt)}</p>
+               <p>{data2.daily[0].dt!=""&&convert2(data2.daily[0].dt)}</p>
                    <p><BsFillSunFill /> {data2.daily[0].temp.day!=""&&data2.daily[0].temp.day}<sup>o</sup>C</p>
                    <p><MdNightsStay /> {data2.daily[0].temp.night!=""&&data2.daily[0].temp.night}<sup>o</sup>C</p>
                   
                </div>
                <div className="small-box">
-                  
+               <p>{data2.daily[1].dt!=""&&convert(data2.daily[1].dt)}</p>
+               <p>{data2.daily[1].dt!=""&&convert2(data2.daily[1].dt)}</p>
                    <p><BsFillSunFill />{data2.daily[1].temp.day!=""&&data2.daily[1].temp.day}<sup>o</sup>C</p>
                    <p><MdNightsStay /> {data2.daily[1].temp.night!=""&&data2.daily[1].temp.night}<sup>o</sup>C</p>
                    
                </div>
                <div className="small-box">
-                   
+               <p>{data2.daily[2].dt!=""&&convert(data2.daily[2].dt)}</p>
+               <p>{data2.daily[2].dt!=""&&convert2(data2.daily[2].dt)}</p>
                    <p><BsFillSunFill /> {data2.daily[2].temp.day!=""&&data2.daily[2].temp.day}<sup>o</sup>C</p>
                    <p><MdNightsStay /> {data2.daily[2].temp.night!=""&&data2.daily[2].temp.night}<sup>o</sup>C</p>
                  
                </div>
                <div className="small-box">
-                 
+               <p>{data2.daily[3].dt!=""&&convert(data2.daily[3].dt)}</p>
+               <p>{data2.daily[3].dt!=""&&convert2(data2.daily[3].dt)}</p>
                    <p><BsFillSunFill /> {data2.daily[3].temp.day!=""&&data2.daily[3].temp.day}<sup>o</sup>C</p>
                    <p><MdNightsStay /> {data2.daily[3].temp.night!=""&&data2.daily[3].temp.night}<sup>o</sup>C</p>
                 
                </div>
                <div className="small-box">
-                  
+
+
+                   <p>{data2.daily[4].dt!=""&&convert(data2.daily[4].dt)}</p>
+                   <p>{data2.daily[4].dt!=""&&convert2(data2.daily[4].dt)}</p>
                    <p><BsFillSunFill /> {data2.daily[4].temp.day!=""&&data2.daily[4].temp.day}<sup>o</sup>C</p>
                    <p><MdNightsStay /> {data2.daily[4].temp.night!=""&&data2.daily[4].temp.night}<sup>o</sup>C</p>
                 

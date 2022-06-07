@@ -4,7 +4,7 @@
 
 .nav{
     background-color: #DBDFFD;
-    width: 1600px;
+    width: 100vw;
     height: 65px;
    
     display: flex;
@@ -81,6 +81,16 @@
         width: 1490px;
       height: 85px;
     }
+}
+
+
+
+@media screen and (min-width:1024px) and (max-width:1284px){
+  .nav{
+      background-color: #DBDFFD;
+      width: 1690px;
+    height: 85px;
+  }
 }
 
 
