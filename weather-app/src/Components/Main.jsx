@@ -7,19 +7,12 @@ import { useEffect, useState } from "react";
 export const Main = ({value})=>{
 
 
-      const [data2 , setData2] = useState({
-       
-        daily:[{temp:{day:""}},{temp:{day:""}},{temp:{day:""}},{temp:{day:""}},{temp:{day:""}}],
-        daily:[{temp:{night:""}},{temp:{night:""}},{temp:{night:""}},{temp:{night:""}},{temp:{night:""}}],
-        
+      const [data2 , setData2] = useState({       
+        daily:[{temp:{day:"",night:""}},{temp:{day:"",night:""}},{temp:{day:"",night:""}},{temp:{day:"",night:""}},{temp:{day:"",night:""}}],        
       });
 
     const [data1, setData1] = useState({
-        main:{temp:""},
-        main:{temp_min:""},
-        main:{temp_max:""},
-        main:{feels_like:""},
-        main:{humidity:""},
+        main:{temp:"",temp_min:"",temp_max:"",feels_like:"",humidity:""},
         name:"",
         weather:[{main:""}],
         visibility:"",
@@ -56,8 +49,7 @@ async function cityWeekInfo(latitude, longitude) {
     let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=b3dfaeaf2defd23abad8ac8117387f27&units=metric`
     try {
         let responce = await fetch(url);
-        let data = await responce.json();
-       
+        let data = await responce.json();       
         
         setData2(data);
     }
